@@ -1,15 +1,16 @@
 nav:
-  home: Início
+  home: Home
   about: Sobre
   articles: Artigos
   projects: Projetos
+  talks: Palestras
   search: Buscar
 
 footer:
   copyright: Copyright
 
 index:
-  find_me_on: Me encontre em 
+  find_me_on: Me encontre em
   enum_comma: ','
   enum_and: e
   articles: Artigos
