@@ -4,12 +4,12 @@
 
   h1, .h1
     margin-top: 0
-    margin-bottom: 0
+    margin-bottom: 5px
     color: $color-text
     letter-spacing: .01em
     font-weight: 700
     font-style: normal
-    font-size: 1.5rem
+    font-size: 1.6rem
     line-height: 2rem
 
     antialias()
@@ -36,7 +36,7 @@
     letter-spacing: .01em
     font-weight: 200
     font-style: normal
-    font-size: .8rem
+    font-size: .9rem
 
     ul
       margin: 0
@@ -48,9 +48,6 @@
         margin-right: 15px
         color: $color-accent-1
 
-      a:hover
-        underline(5px, $color-accent-1)
-
       li
         display: inline-block
         margin-right: 15px
@@ -61,12 +58,22 @@
       .icon
         display: none
 
+      li:not(.icon)
+        a:hover
+          background-color: $color-link
+          color: $color-background
+
       li:last-child
         margin-right: 0
         border-right: 0
 
         a
           margin-right: 0
+
+          &:hover
+            background: none
+            color: $color-accent-1
+            underline(5px, $color-accent-1)
 
 #header:hover
   #logo
