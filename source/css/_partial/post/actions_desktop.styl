@@ -82,7 +82,8 @@
         color: color-accent-1
 
       a:hover
-        underline(5px, $color-accent-1)
+        background-color: $color-link
+        color: $color-background
 
       li
         border-right: 1px dotted $color-accent-1
@@ -93,6 +94,11 @@
 
         a
           margin-right: 0
+
+          &:hover
+            background: none
+            color: $color-accent-1
+            underline(5px, $color-accent-1)
 
   #actions
     float: right
