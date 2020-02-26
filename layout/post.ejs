@@ -1,5 +1,8 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
+    <nav class="site-nav">
+      <a href="<%- url_for("/") %>">voltar</a>
+    </nav>
     <%- partial('_partial/post/title', { post: page, index: false, class_name: 'posttitle' }) %>
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
