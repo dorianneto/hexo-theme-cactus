@@ -12,6 +12,10 @@
           <a class="icon" target="_blank" rel="noopener" href="<%- theme.social_links[link] %>">
             <i class="fas fa-envelope"></i><!--
       ---></a><!--
+      ---><% } else if (link == 'rss') { %>
+          <a class="icon" target="_blank" rel="noopener" href="<%- theme.social_links[link] %>">
+            <i class="fas fa-rss"></i><!--
+      ---></a><!--
       ---><% } else { %>
           <a class="icon" target="_blank" rel="noopener" href="<%- url_for(theme.social_links[link]) %>">
             <i class="fab fa-<%= link %>"></i><!--
@@ -27,23 +31,35 @@
   <% } %>
 </section>
 
-<div id="archive">
+<section id="writing">
+  <span class="h1"><a href="<%- url_for("archives") %>"><%= __('index.articles') %></a></span>
+  <% if (theme.tags_overview && site.tags.length) { %>
+  <span class="h2"><%= __('index.topics') %></span>
+  <span class="widget tagcloud">
+    <%- tagcloud(theme.tags_overview) %>
+  </span>
+  <span class="h2"><%= __('index.most_recent') %></span>
+  <% } %>
   <ul class="post-list">
-    <% var year = 0 %>
-    <% var change = false %>
-    <% var field_sort = theme.archive.sort_updated ? 'updated' : 'date' %>
-    <% page.posts.sort(field_sort, 'desc').each(function(post) { %>
-      <% var itemYear = date(post[field_sort], 'YYYY') - 0 %>
-      <% change = year !== itemYear %>
-      <% year = change ? itemYear : year %>
-      <% if (change) { %>
-        <h2><%= year %></h2>
-      <% } %>
+    <% var field_sort = theme.posts_overview.sort_updated ? 'updated' : 'date' %>
+    <% if (theme.posts_overview.show_all_posts) { %>
+      <% var show_posts = page.posts.sort(field_sort, 'desc') %>
+    <% } else { %>
+      <% var show_posts = site.posts.sort(field_sort, 'desc').limit(theme.posts_overview.post_count || 5) %>
+    <% } %>
+    <% show_posts.each(function(post, i){ %>
       <li class="post-item">
         <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
-        <span><%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %></span>
+        <span>
+          <%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %>
+          <% if (i == 0) { %>
+            <span class="badge badge-new">novo</span>
+          <% } %>
+        </span>
       </li>
     <% }); %>
   </ul>
-  <%- partial('_partial/pagination') %>
-</div>
+  <% if (theme.posts_overview.show_all_posts) { %>
+    <%- partial('_partial/pagination') %>
+  <% } %>
+</section>

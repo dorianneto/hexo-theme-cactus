@@ -9,7 +9,7 @@
     // copy-btn HTML
     var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"<%= __('tooltip.copy_tip') %>\">";
     btn += '<i class="far fa-clone"></i>';
-    btn += '</span>'; 
+    btn += '</span>';
     // mount it!
     $(".highlight table").before(btn);
     var clip = new ClipboardJS('.btn-copy', {
@@ -89,15 +89,15 @@
 <% } %>
 <!-- Disqus Comments -->
 <% if (theme.disqus.enabled && theme.disqus.shortname){ %>
-    <script type="text/javascript">
-        var disqus_shortname = '<%= theme.disqus.shortname %>';
+    <script>
+      var disqus_shortname = '<%= theme.disqus.shortname %>';
 
-        (function(){
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript';
-            dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments){ %>embed.js<% } else { %>count.js<% } %>';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        }());
+      (function () {
+        var d = document,
+          s = d.createElement('script');
+        s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
     </script>
 <% } %>
