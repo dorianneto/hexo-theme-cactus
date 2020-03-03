@@ -11,6 +11,11 @@
         twitter_id:     theme.open_graph.twitter_id,
         google_plus:    theme.open_graph.google_plus,
     }) %>
+
+    <% if (is_home()) { %>
+      <meta property="og:image" content="<%=theme.presentation_image%>">
+    <% } %>
+
     <%- meta(page) %>
     <% if (theme.favicon) { %>
         <% if (theme.favicon.desktop) { %>
