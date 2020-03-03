@@ -152,3 +152,4 @@ gravatar:
 # Custom
 blog_start: 2013
 presentation_image: /assets/img/dorianneto.jpg
+show_new_post_badge: false

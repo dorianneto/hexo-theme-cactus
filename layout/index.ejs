@@ -52,7 +52,7 @@
         <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
         <span>
           <%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %>
-          <% if (i == 0) { %>
+          <% if (theme.show_new_post_badge == true && i == 0) { %>
             <span class="badge badge-new">novo</span>
           <% } %>
         </span>
