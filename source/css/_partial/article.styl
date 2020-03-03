@@ -2,9 +2,7 @@ article
   .content
     a
       &:hover
-        background: none !important
-        background-color: $color-link !important
-        color: $color-background
+        color: $color-link
 
   header
     .posttitle
@@ -38,6 +36,17 @@ article
         margin-right: .25rem;
 
   .content
+    .cover-image
+      width: 100%
+      margin: 0
+
+      figcaption
+        font-style: italic
+        font-size: 0.65em
+
+      img
+        width: 100%
+
     h2:before
       position: absolute
       top: -4px
